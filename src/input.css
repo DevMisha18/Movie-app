@@ -1,3 +1,9 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .no-scroll {
+    scrollbar-width: none;
+  }
+}
