@@ -5,7 +5,6 @@ export default function MovieList({
   handleFavouritesClick,
   AddToFavourites,
 }) {
-  // bg-dark
   return (
     <div className="movies flex flex-nowrap overflow-x-auto no-scroll">
       {movies.map((movie) => (
@@ -33,5 +32,5 @@ export default function MovieList({
 MovieList.propTypes = {
   movies: PropTypes.array.isRequired,
   handleFavouritesClick: PropTypes.func.isRequired,
-  AddToFavourites: PropTypes.element.isRequired,
+  AddToFavourites: PropTypes.elementType.isRequired,
 };
