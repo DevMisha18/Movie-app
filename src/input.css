@@ -7,6 +7,11 @@
     @apply w-52 h-6 p-2 border border-gray-300 rounded-lg
            focus:outline-none focus:ring-2 focus:ring-blue-400;
   }
+
+  .overlay {
+    @apply absolute bottom-0 w-full text-white bg-[rgba(0,0,0,0.6)] opacity-0
+           text-2xl p-2 text-center;
+  }
 }
 
 @layer utilities {
