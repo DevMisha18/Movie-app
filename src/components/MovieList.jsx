@@ -33,5 +33,5 @@ export default function MovieList({
 MovieList.propTypes = {
   movies: PropTypes.array.isRequired,
   handleFavouritesClick: PropTypes.func.isRequired,
-  AddToFavourites: PropTypes.element,
+  AddToFavourites: PropTypes.element.isRequired,
 };

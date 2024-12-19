@@ -3,6 +3,7 @@ import MovieList from "./components/MovieList";
 import MovieListHeading from "./components/MovieListHeading";
 import SearchBox from "./components/SearchBox";
 import AddToFavourites from "./components/AddToFavourite";
+import RemoveFavourite from "./components/RemoveFavourite";
 
 export default function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -22,6 +23,12 @@ export default function App() {
   }, [searchValue]);
 
   const addFavouriteMovie = (movie) => setFavourites([...favourites, movie]);
+  const removeFavouriteMovie = (remMovie) => {
+    const filtereFavourites = favourites.filter(
+      (movie) => movie.imdbID !== remMovie.imdbID
+    );
+    setFavourites(filtereFavourites);
+  };
 
   return (
     <>
@@ -39,8 +46,8 @@ export default function App() {
       </div>
       <MovieList
         movies={favourites}
-        handleFavouritesClick={addFavouriteMovie}
-        AddToFavourites={AddToFavourites}
+        handleFavouritesClick={removeFavouriteMovie}
+        AddToFavourites={RemoveFavourite}
       />
     </>
   );
