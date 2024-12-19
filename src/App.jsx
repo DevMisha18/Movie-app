@@ -4,6 +4,7 @@ import MovieListHeading from "./components/MovieListHeading";
 import SearchBox from "./components/SearchBox";
 import AddToFavourites from "./components/AddToFavourite";
 import RemoveFavourites from "./components/RemoveFavourites";
+import axios from "axios";
 
 export default function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -11,11 +12,21 @@ export default function App() {
   const [favourites, setFavourites] = useState([]);
 
   const getMovieRequest = async (search) => {
+    search = "star";
     const url = `https://www.omdbapi.com/?s=${search}&apikey=b2583786`;
-    const response = await fetch(url);
-    const responseJSON = await response.json();
 
-    if (responseJSON.Search) setMovies(responseJSON.Search);
+    // Another way to use to use axios
+    // prettier-ignore
+    // axios
+    //   .get(url)
+    //   .then((response) => {
+    //     const data = response.data;
+    //     if (data.Search) setMovies(data.Search);
+    //   });
+
+    const response = await axios.get(url);
+    const data = await response.data;
+    if (data.Search) setMovies(data.Search);
   };
 
   useEffect(() => {
